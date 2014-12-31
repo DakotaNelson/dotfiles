@@ -221,6 +221,7 @@ set guioptions-=l "Removes scrollbars
 set guioptions-=r "Removes scrollbars
 set guioptions-=b "Removes scrollbars
 set pastetoggle=<F2> " Binds F2 to pastetoggling
+let c_minlines = 300 " scan 300 lines to find proper syntax highlighting
 set wildmode=list:longest,full " bash command line tab completion
 set listchars=tab:\|\ ,trail:●,extends:>,precedes:<,nbsp:+ "Whitespace showing
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
