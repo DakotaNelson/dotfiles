@@ -27,9 +27,6 @@ Bundle 'skammer/vim-css-color'
 " Add CSS3 syntax support to vim's built-in `syntax/css.vim`
 Bundle 'hail2u/vim-css3-syntax'
 
-" Less syntax support
-Bundle 'groenewege/vim-less'
-
 " CoffeeScript support for vim
 Bundle 'kchmck/vim-coffee-script'
 
@@ -53,9 +50,6 @@ Bundle 'grep.vim'
 " <c-n>
 Bundle 'scrooloose/nerdtree'
 
-" Extends % operator to match html tags and others.
-Bundle 'tsaleh/vim-matchit'
-
 " Unload/delete/wipe a buffer, keep its window(s)
 Bundle 'bufkill.vim'
 
@@ -71,9 +65,8 @@ Bundle 'tpope/vim-surround'
 " Enable repeating supported plugin maps with '.'
 Bundle 'tpope/vim-repeat'
 
-" A parser for a condensed HTML format
-" <c-e> after a block of sparkup-formatted pre-html
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Enable case coercion, among other things
+Bundle 'tpope/vim-abolish'
 
 " Easily comment in and out lines
 " <leader>__
