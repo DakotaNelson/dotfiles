@@ -11,7 +11,7 @@
 
 set nocompatible " Does not use old vi quirks
 filetype off     " Required temporarily for vundle
-set rtp+=~/.vim/bundle/vundle
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 " Helps me collaborate "
