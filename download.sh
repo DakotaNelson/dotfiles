@@ -6,6 +6,6 @@ if [ -d "$HOME/dotfiles" ]; then
 fi
 
 echo "****** Downloading github.com/DakotaNelson/dotfiles ******"
-git clone https://github.com/DakotaNelson/dotfiles.git $HOME
+git clone https://github.com/DakotaNelson/dotfiles.git $HOME/
 
 cd "$HOME/dotfiles/" && ./setup.sh
