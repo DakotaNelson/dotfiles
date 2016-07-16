@@ -4,7 +4,7 @@
 # https://github.com/emorikawa/dotfiles/blob/master/install.sh
 
 if [ `whoami` == root ]; then
-  echo "DONT run this script as root, or using sudo"
+  echo "DO NOT run this script as root, or using sudo"
   exit
 fi
 
@@ -19,6 +19,13 @@ BASEDIR=$(cd "$(dirname "$0")"; pwd)
 echo "Basedir: $BASEDIR"
 
 mkdir ~/.vim
+
+echo ""
+echo "===> Configuring Git <==="
+echo "---> Backing up any previous .gitconfig"
+cp $HOME/.gitconfig $HOME/.gitconfig.bak
+echo "---> Linking gitconfig"
+ln -sf $BASEDIR/.gitconfig $HOME/.gitconfig
 
 echo ""
 echo "===> Installing VIM <==="

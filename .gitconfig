@@ -1,0 +1,19 @@
+[user]
+  email = Dakota.Nelson@students.olin.edu
+  name = Dakota Nelson
+[push]
+  default = simple
+[github]
+  user = DakotaNelson
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
