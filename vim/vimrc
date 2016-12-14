@@ -76,6 +76,11 @@ Bundle 'tomtom/tcomment_vim'
 " <leader><leader><motion>
 Bundle 'Lokaltog/vim-easymotion'
 
+" Helps me develop in Go
+Bundle 'fatih/vim-go'
+" Disable Shift-k looking up Godocs (so that I can use it for fast movement)
+let g:go_doc_keywordprg_enabled = 0
+
 " Key remappings ordered by approximate frequency of use"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = ","
@@ -213,6 +218,7 @@ set guioptions-=T "Removes GUI bars
 set guioptions-=l "Removes scrollbars
 set guioptions-=r "Removes scrollbars
 set guioptions-=b "Removes scrollbars
+set colorcolumn=80
 set pastetoggle=<F2> " Binds F2 to pastetoggling
 let c_minlines = 300 " scan 300 lines to find proper syntax highlighting
 set wildmode=list:longest,full " bash command line tab completion
@@ -228,6 +234,8 @@ command! Whitespace %s/\s\+$//e
 command! -nargs=1 Gr Grep -ErinI --exclude-dir=log --exclude-dir=tmp --exclude-dir=coverage <args> *
 
 command! CopyTitle !echo "%\c" | pbcopy
+
+command! Gedit ! gedit "%"
 
 " Autocommands "
 """""""""""""""
