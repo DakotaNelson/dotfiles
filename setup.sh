@@ -40,6 +40,18 @@ ln -sf $BASEDIR/vim/vim $HOME/.vim
 echo "---> Installing plugins"
 vim +PluginInstall +qall
 
+echo ""
+echo "===> Setting up Bash <==="
+# set up bashrc
+cp $HOME/.bashrc $HOME/.bashrc.bak
+ln -sf $BASEDIR/dotfiles/bash/.bashrc $HOME/.bashrc
+# set up bash_profile
+cp $HOME/.bash_profile $HOME/.bash_profile.bak
+ln -sf $BASEDIR/dotfiles/bash/.bash_profile $HOME/.bash_profile
+# don't tell anyone about the illuminati
+cp $HOME/.bashrc.secrets $HOME/.bashrc.secrets.bak
+ln -sf $BASEDIR/dotfiles/bash/.bashrc.secrets $HOME/.bashrc.secrets
+
 
 echo ""
 echo "==== All done. Move along. ===="
