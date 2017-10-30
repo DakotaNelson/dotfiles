@@ -239,6 +239,10 @@ command! Gedit ! gedit "%"
 
 " Autocommands "
 """""""""""""""
+
+" Makes sure Vim resets colors on exit "
+au VimLeave * !echo -ne "\033[0m"
+
 " Mixes in html filetype to web languages
 augroup html_mixin
   autocmd!

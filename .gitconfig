@@ -1,5 +1,5 @@
 [user]
-  email = Dakota.Nelson@students.olin.edu
+  email = dakota.w.nelson@gmail.com
   name = Dakota Nelson
 [push]
   default = simple
@@ -17,3 +17,5 @@
   added = yellow
   changed = green
   untracked = cyan
+[alias]
+	llog = log --graph --abbrev-commit --decorate --date=relative --all
