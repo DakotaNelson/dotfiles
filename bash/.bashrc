@@ -27,7 +27,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 #### Set Bash Prompt ####
 function git_status() {
   BRANCH=`git branch 2>/dev/null | grep '^*' | colrm 1 2`
-  if [ ! ${BRANCH} == "" ]; then
+  if [ ! "${BRANCH}" == "" ]; then
     echo ": ${BRANCH}"
   else
     echo ""
