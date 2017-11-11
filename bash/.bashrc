@@ -34,12 +34,13 @@ function git_status() {
   fi
 }
 
+export bold="\[\e[1m\]"
+export endbold="\[\e[0m\]"
 #            user@host
 #            |     current directory
-#            |     | start bold         end bold
-#            |     | |     git branch   |
-#            |     | |     |            |
-export PS1="[\u@\h \W\e[1m\$(git_status)\e[0m]$ "
+#            |     |         git branch
+#            |     |         |
+export PS1="[\u@\h \W${bold}\$(git_status)${endbold}]$ "
 
 
 #### Generate Random Password-y Things ####
