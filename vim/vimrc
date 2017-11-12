@@ -56,9 +56,11 @@ Bundle 'vim-syntastic/syntastic'
 let g:syntastic_python_checkers = ['pylint']
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+
+autocmd VimEnter * SyntasticToggleMode
 
 " Helps me develop in Go
 Bundle 'fatih/vim-go'
@@ -131,10 +133,18 @@ noremap <Space> /
 noremap <F1> <nop>
 
 " Syntax checking commands
-noremap sc :SyntasticCheck<CR>
-noremap scc :SyntasticReset<CR>
-noremap ne :lnext<CR>
-noremap pe :lprevious<CR>
+" Silent Syntax Check
+noremap ssc :SyntasticCheck<CR>
+" Syntax Check
+noremap sc :SyntasticCheck<CR>:Errors<CR>
+" Syntax Check Close
+noremap scc :lclose<CR>
+" Syntax Check Clear Completely
+noremap sccc :SyntasticReset<CR>:lclose<CR>
+" Next Issue
+noremap ni :lnext<CR>
+" Previous Issue
+noremap pi :lprevious<CR>
 
 "Git commands
 noremap gs :Gstatus<CR>
