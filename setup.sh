@@ -41,6 +41,13 @@ echo "---> Installing plugins"
 vim +PluginInstall +qall
 
 echo ""
+echo "===> Importing Fonts <==="
+mkdir -p $HOME/.fonts
+# link all the fonts!
+find $BASEDIR/fonts/anonymouspro/*.ttf -exec ln -sf {} $HOME/.fonts \;
+fc-cache -f
+
+echo ""
 echo "===> Setting up Bash <==="
 # set up bashrc
 cp $HOME/.bashrc $HOME/.bashrc.bak
