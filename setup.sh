@@ -35,8 +35,9 @@ echo "---> Backing up any previous .vimrc"
 cp $HOME/.vimrc $HOME/.vimrc.bak
 echo "---> Linking .vimrc"
 ln -sf $BASEDIR/vim/vimrc $HOME/.vimrc
-echo "---> Linking .vim folder"
-ln -sf $BASEDIR/vim/vim $HOME/.vim
+echo "---> Linking .vim/colors"
+ln -sf $BASEDIR/vim/colors $HOME/.vim/colors
+#ln -sf $BASEDIR/vim/vim $HOME/.vim
 echo "---> Installing plugins"
 vim +PluginInstall +qall
 
