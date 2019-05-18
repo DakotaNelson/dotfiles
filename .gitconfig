@@ -19,3 +19,5 @@
   untracked = cyan
 [alias]
 	llog = log --graph --abbrev-commit --decorate --date=relative --all
+[core]
+	editor = vim
