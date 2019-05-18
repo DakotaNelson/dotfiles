@@ -59,7 +59,7 @@ alias dm='docker-machine'
 
 
 #### Set up a Golang Workspace ####
-export GOPATH=$HOME/gospace/
+export GOPATH=$HOME/go/
 export PATH=$PATH:$GOPATH/bin
 
 
