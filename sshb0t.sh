@@ -3,14 +3,6 @@
 GH_USER="dakotanelson"
 USERNAME="dnelson"
 
-echo "Installing sshb0t for github username $GH_USER and local username $USERNAME."
-read -p "Are you sure? [y/n] " -n 1 -r
-echo    # (optional) move to a new line
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-      install_sshb0t
-fi
-
 install_sshb0t() {
   # Export the sha256sum for verification.
   export SSHB0T_SHA256="1b231c8ced77eef54c01b9d96c4278da0e02f362502096eee940d345b10a90e7"
@@ -43,3 +35,19 @@ install_sshb0t() {
 
   echo "sshb0t.service enabled and started"
 }
+
+##########################################################
+
+if [[ $EUID -ne 0 ]]; then
+  echo "This script must be run as root"
+  exit 1
+fi
+
+echo "Installing sshb0t for github username $GH_USER and local username $USERNAME."
+read -p "Are you sure? [y/n] " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+      install_sshb0t
+fi
+
