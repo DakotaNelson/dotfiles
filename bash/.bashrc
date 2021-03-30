@@ -13,16 +13,8 @@ fi
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
 export PATH
 
-
-#### Adds Heroku Toolbelt to Path ####
-export PATH="/usr/local/heroku/bin:$PATH"
-
-
-#### Loads Pyenv ####
-# export PATH="$HOME/.pyenv/bin:$PATH"
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
-
+#### Python 3 is Python ####
+alias python="python3"
 
 #### Set Bash Prompt ####
 function git_status() {
@@ -42,27 +34,19 @@ export endbold="\[\e[0m\]"
 #            |     |         |
 export PS1="[\u@\h \W${bold}\$(git_status)${endbold}]$ "
 
-
-#### Generate Random Password-y Things ####
-# to run: genpwd [length of password]
-genpwd() {
-  cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $1 | head -n 1
-}
-alias genpwd=genpwd
-
-
 #### Convenient Aliases ####
 alias gs='git status'
-alias dc='/usr/local/bin/docker-compose'
-alias docker-compose='/usr/local/bin/docker-compose'
-alias dm='docker-machine'
-
 
 #### Set up a Golang Workspace ####
 export GOPATH=$HOME/go/
 export PATH=$PATH:$GOPATH/bin
 
-
 # view the readme for a repo
 # https://github.com/joeyespo/grip
 alias readme="grip -b --user $GITHUBUSER --pass $GITHUBPASS"
+
+# Windows X11 server w/ VcXsrv:
+# https://www.scivision.dev/x11-gui-windows-subsystem-for-linux/
+
+DISPLAY=:0.0
+export DISPLAY
