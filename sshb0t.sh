@@ -1,7 +1,6 @@
 #!/bin/bash
 
 GH_USER="dakotanelson"
-USERNAME="dnelson"
 
 install_sshb0t() {
   # Export the sha256sum for verification.
@@ -14,7 +13,15 @@ install_sshb0t() {
 
   echo "sshb0t installed!"
 
-  sudo echo \
+  KEYFILE="/home/$USER/.ssh/authorized_keys"
+  if [ $KEYFILE does not exist ]; then
+       echo "$KEYFILE does not exist, creating..."
+       touch $KEYFILE
+       chown $USER:$USER $KEYFILE
+       chmod 644 $KEYFILE
+  fi
+
+  echo \
   """[Unit]
   Description=keeps SSH keys synchyronized from GitHub
   After=network.target
@@ -22,16 +29,16 @@ install_sshb0t() {
   [Service]
   type=simple
   Restart=always
-  ExecStart=/usr/local/bin/sshb0t --user $GH_USER --keyfile /home/$USERNAME/.ssh/authorized_keys
+  ExecStart=/usr/local/bin/sshb0t --user $GH_USER --keyfile $KEYFILE
 
   [Install]
   WantedBy=multi-user.target""" > /etc/systemd/system/sshb0t.service
 
   echo "sshb0t unit file created..."
 
-  sudo systemctl daemon-reload
-  sudo systemctl enable sshb0t.service
-  sudo systemctl start sshb0t.service
+  systemctl daemon-reload
+  systemctl enable sshb0t.service
+  systemctl start sshb0t.service
 
   echo "sshb0t.service enabled and started"
 }
@@ -43,7 +50,7 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
-echo "Installing sshb0t for github username $GH_USER and local username $USERNAME."
+echo "Installing sshb0t for github username $GH_USER and local username $USER."
 read -p "Are you sure? [y/n] " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
