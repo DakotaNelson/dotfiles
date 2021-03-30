@@ -1,6 +1,7 @@
 #!/bin/bash
 
 GH_USER="dakotanelson"
+USERNAME="dnelson"
 
 install_sshb0t() {
   # Export the sha256sum for verification.
@@ -13,11 +14,11 @@ install_sshb0t() {
 
   echo "sshb0t installed!"
 
-  KEYFILE="/home/$USER/.ssh/authorized_keys"
+  KEYFILE="/home/$USERNAME/.ssh/authorized_keys"
   if [ $KEYFILE does not exist ]; then
        echo "$KEYFILE does not exist, creating..."
        touch $KEYFILE
-       chown $USER:$USER $KEYFILE
+       chown $USERNAME:$USERNAME $KEYFILE
        chmod 644 $KEYFILE
   fi
 
@@ -50,7 +51,7 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
-echo "Installing sshb0t for github username $GH_USER and local username $USER."
+echo "Installing sshb0t for github username $GH_USER and local username $USERNAME."
 read -p "Are you sure? [y/n] " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
